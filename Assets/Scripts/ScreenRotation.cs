@@ -17,7 +17,7 @@ public class ScreenRotation : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Space)) { 
+		if (Input.touchCount > 0) { 
 			angle++;
 			targetRotation *=  Quaternion.AngleAxis(90, Vector3.back);
 			rig.velocity = Vector3.zero;
