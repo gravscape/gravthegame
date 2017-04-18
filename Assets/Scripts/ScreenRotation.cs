@@ -29,6 +29,7 @@ public class ScreenRotation : MonoBehaviour {
 			Physics.gravity = new Vector3 (-Mathf.Round(Mathf.Sin (radAngle)) * grav,Mathf.Round(-Mathf.Cos (radAngle)) * grav,0);
 			break;
 		case Richting.R:
+
 			break;
 		}
 	}
