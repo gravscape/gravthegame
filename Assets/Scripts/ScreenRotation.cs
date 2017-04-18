@@ -13,6 +13,7 @@ public class ScreenRotation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		targetRotation = transform.rotation;
+		Physics.gravity = new Vector3 (0,-grav,0);
 	}
 
 	enum Richting{
@@ -20,16 +21,21 @@ public class ScreenRotation : MonoBehaviour {
 	}
 
 	void Rotate(Richting richting){
+		float radAngle;
 		switch (richting) {
 		case Richting.L:
 			angle++;
 			targetRotation *=  Quaternion.AngleAxis(90, Vector3.back);
 			rig.velocity = Vector3.zero;
-			float radAngle = (90 * angle) * (Mathf.PI / 180);
+			radAngle = (90 * angle) * (Mathf.PI / 180);
 			Physics.gravity = new Vector3 (-Mathf.Round(Mathf.Sin (radAngle)) * grav,Mathf.Round(-Mathf.Cos (radAngle)) * grav,0);
 			break;
 		case Richting.R:
-
+			angle--;
+			targetRotation *=  Quaternion.AngleAxis(-90, Vector3.back);
+			rig.velocity = Vector3.zero;
+			radAngle = (90 * angle) * (Mathf.PI / 180);
+			Physics.gravity = new Vector3 (-Mathf.Round(Mathf.Sin (radAngle)) * grav,Mathf.Round(-Mathf.Cos (radAngle)) * grav,0);
 			break;
 		}
 	}
