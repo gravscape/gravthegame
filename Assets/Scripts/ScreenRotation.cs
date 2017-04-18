@@ -35,8 +35,16 @@ public class ScreenRotation : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) { 
-			Rotate (Richting.L);
+		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) {
+            var touch = Input.touches[0];
+            if (touch.position.x < Screen.width / 2)
+            {
+                Rotate(Richting.L);
+            }
+            else {
+                Rotate(Richting.R);
+            }
+			
 		} 
 		transform.rotation= Quaternion.Lerp (transform.rotation, targetRotation , 10 * smooth * Time.deltaTime);
 	}
