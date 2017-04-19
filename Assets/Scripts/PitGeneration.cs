@@ -28,7 +28,13 @@ public class PitGeneration : MonoBehaviour {
 	void Update () {
 		if (player.position.y < -generatedPieces [location].transform.GetChild(0).localScale.y / 2) {
 			location++;
-		}
+
+            int index = generatedPieces.Length;
+            generatedPieces[index] = Instantiate(prefabPieces[1], parent);
+            generatedPieces[index].transform.GetChild(0).localScale += new Vector3(0, 10, 0);
+        }
 		Debug.Log (location);
+
+    
 	}
 }
