@@ -281,6 +281,11 @@ Prefab:
       propertyPath: orthographic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114813807806566406, guid: 266e9481f81fa7441a6be69f0c6eded2,
+        type: 2}
+      propertyPath: spaceBarActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114622139985915168, guid: 266e9481f81fa7441a6be69f0c6eded2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 266e9481f81fa7441a6be69f0c6eded2, type: 2}

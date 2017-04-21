@@ -9,6 +9,7 @@ public class ScreenRotation : MonoBehaviour {
 	private int angle = 0;
 	public Rigidbody rig;
 	public float grav = 9.81f;
+	public bool spaceBarActive = false;
 
 	// Use this for initialization
 	void Start () {
@@ -52,7 +53,9 @@ public class ScreenRotation : MonoBehaviour {
                 Rotate(Richting.R);
             }
 			
-		} 
+		} else if(Input.GetKeyUp(KeyCode.Space)){
+			Rotate(Richting.L);
+		}
 		transform.rotation= Quaternion.Lerp (transform.rotation, targetRotation , 10 * smooth * Time.deltaTime);
 	}
 }
